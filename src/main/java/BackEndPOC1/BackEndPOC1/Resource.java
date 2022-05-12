@@ -18,6 +18,10 @@ public class Resource
     private String signArea;
     private String[] signSkills;
 	
+	public Resource() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Resource(int signId, String signFirstname, int signAge, Float signSalary, String signArea,
 			String[] signSkills) {
 		super();
