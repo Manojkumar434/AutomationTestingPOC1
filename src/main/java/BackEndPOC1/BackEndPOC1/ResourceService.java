@@ -22,4 +22,16 @@ public class ResourceService
 	{
 		return (List<Resource>)repo.findAll();
 	}
+	public Optional<Resource> read(int week)
+	{
+		return repo.findById(week);
+	}
+	
+	public String remove(int key)
+	{
+		String nm=repo.findById(key).
+				orElse(new Resource()).getSignFirstname()+" has deleted";
+		repo.deleteById(key);
+		return nm;
+	}
 }
