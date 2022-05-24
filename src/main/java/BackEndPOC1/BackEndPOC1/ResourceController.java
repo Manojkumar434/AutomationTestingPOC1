@@ -30,4 +30,19 @@ public class ResourceController
 	{
 		return service.list();
 	}
+	@GetMapping("/update")
+	public String makeUpdate(@RequestBody Resource res)
+	{
+		return service.create(res).getSignFirstname()+"has Updated";
+	}
+	@DeleteMapping("/del/{unique}")
+	public String makeRemove(@PathVariable("unique") int unique)
+	{
+		return service.remove(unique);
+	}
+	@GetMapping("/getting/{quiz}")
+	public Optional<Resource> makeRead(@PathVariable("quiz") int quiz)
+	{
+		return service.read(quiz);
+	}
 }
