@@ -19,7 +19,6 @@ public class BackEndPoc1Application {
 	public static void main(String[] args) {
 		SpringApplication.run(BackEndPoc1Application.class, args);
 	}
-	
 //	@PostConstruct
 //	public void hai()
 //	{
