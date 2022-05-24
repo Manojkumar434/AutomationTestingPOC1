@@ -1,5 +1,6 @@
 package BackEndPOC1.BackEndPOC1;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,10 +15,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class EntryExit extends WebSecurityConfigurerAdapter
 {
+	@Autowired
+	AuthoritiesService service;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// TODO Auto-generated method stub
+		auth.userDetailsService(service).passwordEncoder(getEncode());
+		
 		auth.inMemoryAuthentication().withUser("Manoj").
 		password(getEncode().encode("Manoj123")).roles("ADMIN");
 	}
